@@ -30,7 +30,7 @@ function App() {
       <h1 className="box-style">헤딩태그 {b === 20 && '20입니다.'} </h1>
       <hr />
       <div>{list.map((n) => n)}</div>
-      {/*forEach는 리턴값이 없어서 화면에 안보인다. */}
+      {/*forEach을 쓸 경우에는 리턴값이 없어서 화면에 안보인다. */}
     </div>
   );
 }

@@ -50,6 +50,38 @@
       // map은 데이터를 하나하나 꺼내서 다시 넣어주고 스프레드는 그대로 뿌려주는거
       const b5 = a5.map((n) => n); //const b5 = [...a5];
       console.log(`b5의 값은 :  ${b5}`); //1,2,3
+
+      const data = { phone: '1234' };
+      const a6 = {
+        id: 1,
+        name: '홍길동',
+        phone: '1111',
+        gender: 'male',
+        age: 26,
+      };
+
+      const b6 = { ...a6, ...data };
+      console.log(b6);
+
+      const users = [
+        { id: 1, name: '홍길동', phone: '2222' },
+        { id: 2, name: '홍길순', phone: '3333' },
+        { id: 3, name: '이순신', phone: '4444' },
+      ];
+
+      const updateUserDto = {
+        id: 2,
+        name: '이대호',
+      };
+
+      //users[1].name = updateUserDto.name;
+
+      //아래에서 map이 아닌 filter를 쓰게되면 ture만 return되기때문에 전체에서 하나만 수정할 땐 map을 쓰는것이 좋음
+      const newUsers = users.map((user) =>
+        user.id === updateUserDto.id ? { ...user, ...updateUserDto } : user,
+      ); //const newUser = {...user};
+      console.log('users', users);
+      console.log('newUsers', newUsers);
     </script>
   </body>
 </html>
