@@ -17,6 +17,8 @@ const mystyle = {
   color: 'red',
 };
 
+let list = [1, 2, 3];
+
 function App() {
   return (
     <div>
@@ -27,6 +29,8 @@ function App() {
       {/*css 외부파일로 적용*/}
       <h1 className="box-style">헤딩태그 {b === 20 && '20입니다.'} </h1>
       <hr />
+      <div>{list.map((n) => n)}</div>
+      {/*forEach는 리턴값이 없어서 화면에 안보인다. */}
     </div>
   );
 }

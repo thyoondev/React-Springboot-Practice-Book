@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log('1. ================스프레드 연산자');
+      //concat, filter, map, slice, 스프레드(전개) 연산자
+      const a = [1, 2, 3];
+      const b = [...a]; //깊은복사 할 때 제일 쉬운 [스프레드 연산자]
+      b.push(4); //b의 데이터 변경
+      console.log(`a의 값은 :  ${a}`); //1,2,3
+      console.log(`b의 값은 :  ${b}`); //1,2,3,4
+
+      console.log('2. ================추가하기'); //concat
+      const a2 = [1, 2, 3];
+      const b2 = a2.concat(4); //push를 쓸경우 4만 나온다, b2를 만들지 않으면 a2에 4가 추가된다.
+      console.log(`a2의 값은 :  ${a2}`); //1,2,3
+      console.log(`b2의 값은 :  ${b2}`); //1,2,3,4
+      const c2 = [0, ...a, 4];
+      console.log(`c2의 값은 :  ${c2}`); //0,1,2,3,4
+
+      console.log('3. ================걸러내기'); //삭제하기할때 많이 씀
+      const a3 = [1, 2, 3];
+      const b3 = a3.filter((n) => {
+        return n != 1;
+      }); //bool을 return 받는다. -> true만 걸러낸다.
+      console.log(`b3의 값은 :  ${b3}`); //2,3
+
+      console.log('4. ================잘라내기');
+      const a4 = [1, 2, 3];
+      const b4 = a4.slice(0, 2);
+      console.log(`b4의 값은 :  ${b4}`); //[1,2]
+      const c4 = [...a4.slice(0, 2), 4, ...a.slice(2, 3)]; //[1,2,4,3] //데이터 중간 삽입
+      console.log(`c4의 값은 :  ${c4}`); //[[1,2]]
+
+      console.log('5. ================반복하기');
+      const a5 = [1, 2, 3];
+      //   for (let i = 0; i < a5.length; i++) {
+      //     console.log(a5[i]);
+      //   }
+
+      //   a5.forEach((n) => {
+      //     console.log(n);
+      //   }); //리턴 못함
+      // map은 데이터를 하나하나 꺼내서 다시 넣어주고 스프레드는 그대로 뿌려주는거
+      const b5 = a5.map((n) => n); //const b5 = [...a5];
+      console.log(`b5의 값은 :  ${b5}`); //1,2,3
+    </script>
+  </body>
+</html>
