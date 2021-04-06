@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { createRef, useRef, useState } from 'react';
 import './App.css';
 //1. return시에 하나의 dom만 리턴할 수 있다.
 //2. 변수선언은 let 혹은 const로만 해야함. (scope 문제)
@@ -9,44 +9,33 @@ import './App.css';
 // -외부 파일에 적는 방법
 // -라이브러리 사용(부트스트랩, componet-styled)
 
+//useRef(디자인)
+//dom을 변경할 때 사용
 function App() {
-  const [list, setList] = useState([1, 2, 3, 4]);
-  const [str, setStr] = useState('합계');
+  const myRef = useRef(null);
+  const [list, setList] = useState([
+    { id: 1, name: '길동' },
+    { id: 2, name: '꺽정' },
+  ]);
 
-  const getAddResult = () => {
-    let sum = 0;
-    list.forEach((i) => (sum = sum + i));
-    console.log('sum 함수 실행됨', sum);
-    return sum;
-  };
-
-  //useMemo => 메모라이제이션(기억)
-  const addResult = useMemo(() => getAddResult(), [list]);
+  const myRefs = Array.from({ length: list.length }).map(() => createRef());
 
   return (
     <div>
       <button
         onClick={() => {
-          setStr('안녕');
+          console.log(myRef);
+          console.log(myRef.current);
+          myRefs[0].current.style.color = 'blue';
+          myRefs[1].current.style.color = 'red';
         }}
       >
-        문자 변경
+        색 변경
       </button>
-      <button
-        onClick={() => {
-          setList([...list, 10]);
-        }}
-      >
-        리스트 값 추가
-      </button>
-      <div>
-        {list.map((i) => (
-          <h1>{i}</h1>
-        ))}
-      </div>
-      <div>
-        {str} : {addResult}
-      </div>
+      <div ref={myRef}> 박스 </div>
+      {list.map((user, index) => (
+        <h1 ref={myRefs[index]}>{user.name}</h1>
+      ))}
     </div>
   );
 }
