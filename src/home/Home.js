@@ -7,6 +7,11 @@ const SyledDeleteButton = styled.button`
   color: ${(props) => (props.user.username === 'ssar' ? 'blue' : 'red')};
 `;
 
+//스타일확장
+const SyledAddButton = styled(SyledDeleteButton)`
+  background-color: green;
+`;
+
 const Home = (props) => {
   //구조분할 할당
   const { boards, setBoards, number, setNumber, user } = props;
@@ -17,7 +22,9 @@ const Home = (props) => {
         전체 삭제
       </SyledDeleteButton>
       <h1>홈 : {number}</h1>
-      <button onClick={() => setNumber(number + 1)}> 숫자 증가 </button>
+      <SyledAddButton user={user} onClick={() => setNumber(number + 1)}>
+        숫자 증가
+      </SyledAddButton>
       <button onClick={() => setBoards([])}>전체 삭제</button>
       {boards.map((board) => (
         <h3>
