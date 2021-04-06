@@ -3,6 +3,7 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
+import HomePage from './pages/HomePage';
 //1. return시에 하나의 dom만 리턴할 수 있다.
 //2. 변수선언은 let 혹은 const로만 해야함. (scope 문제)
 //3. if 사용 불가능 -> 삼항연산자 (조건 ? 값(ture) : 값(false))
@@ -15,9 +16,7 @@ import Main from './components/Main';
 function App() {
   return (
     <div>
-      <Header />
-      <Main />
-      <Footer />
+      <HomePage />
     </div>
   );
 }

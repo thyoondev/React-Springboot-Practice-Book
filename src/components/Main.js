@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import Login from './Login';
+import Login from '../pages/LoginPage';
 
-const Title = styled.h1`
+const StyledTitleH1 = styled.h1`
   color: red;
   text-align: center;
 `;
 function Main() {
   return (
     <div>
-      <Title>제목</Title>
+      <StyledTitleH1>제목</StyledTitleH1>
       <Login />
     </div>
   );
