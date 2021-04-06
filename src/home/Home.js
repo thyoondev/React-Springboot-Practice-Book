@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
 //Function 방식
@@ -18,6 +19,7 @@ const Home = (props) => {
 
   return (
     <div>
+      <Button variant="primary">Primary</Button>
       <SyledDeleteButton user={user} onClick={() => setBoards([])}>
         전체 삭제
       </SyledDeleteButton>
@@ -27,7 +29,7 @@ const Home = (props) => {
       </SyledAddButton>
       <button onClick={() => setBoards([])}>전체 삭제</button>
       {boards.map((board) => (
-        <h3>
+        <h3 key={board.id}>
           제목 : {board.title} 내용 : {board.content}
         </h3>
       ))}
