@@ -8,6 +8,7 @@ const HomePage = () => {
 
   const [boards, setBoards] = useState([]);
   const [number, setNumber] = useState(0);
+  const [user, setUser] = useState({});
 
   //빈 배열 한번만 실행
   useEffect(() => {
@@ -20,6 +21,7 @@ const HomePage = () => {
 
     //다운로드 전이라 빈데이터 들어감
     setBoards([...data]);
+    setUser({ id: 1, username: 'ssar' });
   }, []);
   return (
     <div>
@@ -29,6 +31,7 @@ const HomePage = () => {
         setBoards={setBoards}
         number={number}
         setNumber={setNumber}
+        user={user}
       />
       <Footer />
     </div>

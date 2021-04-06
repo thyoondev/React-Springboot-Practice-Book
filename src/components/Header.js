@@ -5,6 +5,7 @@ const StyleHeaderDiv = styled.div`
   height: 100px;
   border: 1px solid gray;
   text-align: center;
+  background-color: ${(props) => props.backgroundColor};
 `;
 function Header() {
   return (
