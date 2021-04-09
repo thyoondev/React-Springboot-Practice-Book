@@ -39,6 +39,7 @@ const ListPage = () => {
     // computed property name 문법 (키값 동적할당)
     setPost({
       ...post,
+      id: no,
       [e.target.name]: e.target.value,
     });
   };
